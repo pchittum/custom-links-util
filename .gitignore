@@ -10,4 +10,4 @@ node_modules
 selenium-client-jars/
 test/artifacts
 mdapi
-deployblx.sh
+utils
