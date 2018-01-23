@@ -8,7 +8,7 @@
         //let links = component.get("v.linkslist");
         const rawlinks = component.get("v.linkslist_config");
 
-        console.log(rawlinks);
+        //console.log(rawlinks);
 
         let validList = helper.createValidList(rawlinks);
 
@@ -18,7 +18,7 @@
             })
             .catch(function(error){
                 //TODO: do something to the UI if there is an error
-                console.log(error);
+                console.error(error);
             });
 
     }, 
@@ -27,7 +27,7 @@
 
         let links = component.get("v.linkslist");
 
-        console.log(links);
+        //console.log(links);
 
     }, 
     doUnrender : function (component, event, helper) {
