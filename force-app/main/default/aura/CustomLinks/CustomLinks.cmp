@@ -1,9 +1,11 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
 
-    <aura:attribute name="labelslist" type="String[]" default="['Developers','Trailhead']"/>
-    <aura:attribute name="linkslist" type="String[]" default="['http://developer.salesforce.com','http://trailhead.salesforce.com']"/>
+    <aura:attribute name="linkslist_config" type="String"/>
+    <aura:attribute name="linkslist" type="Object[]" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.doRender}"/>
+    <!--THIS DOES NOT WORK >>>> <aura:handler name="unrender" value="{!this}" action="{!c.doRender}"/>-->
 
     <header>Custom Links</header>
 

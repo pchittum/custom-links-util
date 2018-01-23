@@ -1,16 +1,36 @@
 ({
     doInit : function(component, event, helper) {
+        console.log('init handler');
         //get design component lists
         
         //set design values into set of links
 
+        //let links = component.get("v.linkslist");
+        const rawlinks = component.get("v.linkslist_config");
+
+        console.log(rawlinks);
+
+        let validList = helper.createValidList(rawlinks);
+
+        validList
+            .then(function(linksObjectArray){
+                component.set("v.linkslist", linksObjectArray);
+            })
+            .catch(function(error){
+                //TODO: do something to the UI if there is an error
+                console.log(error);
+            });
+
+    }, 
+    doRender : function (component, event, helper) {
+        console.log("render handler");
+
         let links = component.get("v.linkslist");
-        let labels = component.get("v.labelslist");
 
-        //handle exception for too non matching list sizes
+        console.log(links);
 
-        for (var i = 0; i < links.length; i++){
-            console.log("label is: " + labels[i] + " link is: " + links[i]);
-        }
+    }, 
+    doUnrender : function (component, event, helper) {
+        console.log("unrender handler");
     }
 })

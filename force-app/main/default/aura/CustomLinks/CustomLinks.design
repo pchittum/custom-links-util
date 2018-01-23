@@ -1,3 +1,3 @@
-<design:component >
-
+<design:component label="Custom Links Component" >
+    <design:attribute name="linkslist_config" description="This must be a comma separated list of Labels and URLs that you want to have as links in the components." required="true" placeholder="My Cool Site, http://www.salesforce.com, My SF Link, http://trailhead.salesforce.com"/>
 </design:component>
