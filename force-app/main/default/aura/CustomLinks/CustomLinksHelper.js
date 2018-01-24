@@ -12,12 +12,12 @@
                 } else if (rawLinksString.length % 2 !== 0){
                     reject(new Error("There is an uneven number of entries defined in App Builder. Be sure the config string contains labels and URLs in pairs."));
                  } else {
-                    console.log("In promise and data looks good."); 
+                    //console.log("In promise and data looks good."); 
                     let linksarray = rawLinksString.split(",");
                     let linksobjectarray = [];
                     let linkobject = {};
             
-                    console.log(linksarray);
+                    //console.log(linksarray);
             
                     for (var i = 0 ; i < linksarray.length ; i++){
             
@@ -26,7 +26,7 @@
                             "link" : linksarray[i]                
                         };
             
-                        console.log(linkobject);
+                        //console.log(linkobject);
             
                         linksobjectarray.push(linkobject);
                     }
