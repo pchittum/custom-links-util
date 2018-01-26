@@ -1,16 +1,33 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
 
+    <lightning:utilityBarAPI aura:id="bar"/>
+    <lightning:workspaceAPI aura:id="console"/>
+
+
     <aura:attribute name="linkslist_config" type="String"/>
     <aura:attribute name="linkslist" type="Object[]" />
+    <aura:attribute name="isConsole" type="Boolean" default="false"/>
+    <aura:attribute name="hasError" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="render" value="{!this}" action="{!c.doRender}"/>
     <!--THIS DOES NOT WORK >>>> <aura:handler name="unrender" value="{!this}" action="{!c.doRender}"/>-->
+    <lightning:card>  <!--TODO: lightning card is clearly not the right thingy  maybe lightning:verticalNavigation???-->
+        <aura:set attribute="title">
+                Custom  <!-- try lightning:formattedText -->
+        </aura:set>
+        <aura:if isTrue="{!not(v.hasError)}">
 
-    <header>Custom Links</header>
+            <aura:iteration items="{!v.linkslist}" var="item">
+                <p class=".slds-text-link"> <!-- is this necessary with below? 
+                    <a href="{!item.link}" target="_blank">{!item.label}</a> <!--try lightning:formattedURL-->
+                </p>
+            </aura:iteration>
 
-    <div aura:id="links">
-        links will go here
-    </div>
+            <aura:set attribute="else">
+                <span class="">There's an error setting up the links.</span> <!-- try lightning:formattedText -->
+            </aura:set>
 
+        </aura:if>
+    </lightning:card>
 </aura:component>	
